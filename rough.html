@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hover Tooltip</title>
+  <style>
+    /* Icon container */
+    .icon-container {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    /* Icon styling */
+    .icon {
+      font-size: 30px;
+      color: #007bff;
+    }
+
+    /* Tooltip styling */
+    .tooltip {
+      position: absolute;
+      left: 50%;
+      transform: translateY(175%);
+      background-color: #333;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Show the tooltip on hover */
+    .icon-container:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  </style>
+</head>
+<body>
+  <!-- Icon with tooltip -->
+  <div class="icon-container">
+    <i class="icon">👤</i> <!-- Replace with any icon (font-awesome or emoji) -->
+    <span class="tooltip">Login</span>
+  </div>
+</body>
+</html>

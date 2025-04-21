@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Top Button</title>
+    <!-- Font Awesome CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            height: 2000px; /* For demonstration, make the page scrollable */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Scroll to Top Button */
+        #scrollToTopBtn {
+            display: none; /* Initially hide the button */
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 50%; /* Make the button circular */
+            cursor: pointer;
+            opacity: 0; /* Start with opacity 0 */
+            transition: opacity 0.5s ease, transform 0.3s ease; /* Smooth fade-in and pop effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 20px;
+        }
+
+        #scrollToTopBtn:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+            transform: scale(1.1); /* Slightly enlarge on hover */
+        }
+
+        #scrollToTopBtn.show {
+            display: block; /* Make it visible */
+            opacity: 1; /* Fade-in */
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll to Top Button -->
+    <button id="scrollToTopBtn" title="Go to top">
+        <i class="fas fa-chevron-up"></i> <!-- Font Awesome Icon -->
+    </button>
+
+    <!-- Page Content -->
+    <section class="content">
+        <h1>Scroll Down to See the Button</h1>
+        <p>Scroll to the bottom and back up!</p>
+    </section>
+
+    <!-- JavaScript -->
+    <script>
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        // Show or hide the button based on scroll position
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 200) { // Show button after scrolling down 200px
+                scrollToTopBtn.classList.add('show');
+            } else {
+                scrollToTopBtn.classList.remove('show');
+            }
+        });
+
+        // Scroll smoothly to the top when the button is clicked
+        scrollToTopBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Smooth scrolling
+            });
+        });
+    </script>
+</body>
+</html>
